@@ -9,6 +9,7 @@ services:
       - backend
     volumes:
     - ./frontend:/app/frontend
+    - /app/backend/node_modules
 
   backend:
     build: ./backend
@@ -17,6 +18,9 @@ services:
     depends_on:
       - redis
       - mysql
+    volumes:
+    - ./backend:/app/backend
+    - /app/backend/node_modules
 
   redis:
     image: redis:latest

@@ -41,7 +41,7 @@ app.get("/api/hello", async (req, res) => {
   await db.query("INSERT INTO messages (message) VALUES (?)", [
     "Hello stored in MySQL!"
   ]);
-
+  console.log("inserted record");
   res.json({
     msg: "Hello from Backend!",
     redis_visits: count

@@ -1,5 +1,5 @@
 # ---- Stage 1: Build dependencies ----
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 # Set working directory
 WORKDIR /app/backend
@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install --production
 
 # ---- Stage 2: Final lightweight image ----
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app/backend
 
@@ -21,6 +21,6 @@ COPY --from=builder /app/backend/node_modules ./node_modules
 # Copy source code
 COPY . .
 
-EXPOSE 3000
+EXPOSE 5000
 
 CMD ["npm", "start"]

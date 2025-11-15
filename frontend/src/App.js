@@ -18,7 +18,7 @@ function App() {
         setLoading(false);
       });
   };
-
+  console.log("Button clicked");
   return (
     <div style={{ fontSize: "20px", padding: "20px" }}>
       <h1>Frontend → Backend Test</h1>
@@ -38,7 +38,7 @@ function App() {
         Call Backend API
       </button>
 
-      <p style={{ marginTop: "20px" }}>
+      <p style={{ marginTop: "20px", color : "blue"}}>
         {loading ? "Loading..." : `Response: ${data}`}
       </p>
     </div>
